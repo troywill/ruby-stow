@@ -32,7 +32,8 @@ build() {
 package() {
     cd $srcdir/ruby-1.9.3-p194
 #    make DESTDIR=${pkgdir}/stow/ruby-1.9.3.p194 install
-    make DESTDIR="${pkgdir}/stow/ruby-1.9.3.p194 install"
+#    make DESTDIR="${pkgdir}/stow/ruby-1.9.3.p194 install"
+    make DESTDIR="${pkgdir} install"
     install --directory $pkgdir/stow/ruby-foo
     install -D -m644 COPYING "${pkgdir}/usr/share/licenses/ruby/LICENSE"
     install -D -m644 COPYING "${pkgdir}/stow/share/licenses/ruby/LICENSE"
