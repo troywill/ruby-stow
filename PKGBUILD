@@ -24,6 +24,9 @@ build() {
       --enable-pthread \
       --disable-rpath \
       --disable-install-doc
+
+  make
+
 }
 
 package() {
