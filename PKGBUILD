@@ -3,9 +3,9 @@
 # Contributor: John Proctor <jproctor@prium.net>
 # Contributor: Jeramy Rutley <jrutley@gmail.com>
 
-pkgname=ruby
+pkgname=ruby-stow
 pkgver=1.9.3_p194
-pkgrel=2
+pkgrel=1
 pkgdesc='An object-oriented language for quick and easy programming'
 arch=('i686' 'x86_64')
 url='http://www.ruby-lang.org/en/'
@@ -28,7 +28,7 @@ build() {
   cd ruby-${pkgver//_/-}
 
   PKG_CONFIG=/usr/bin/pkg-config ./configure \
-    --prefix=/usr \
+    --prefix=/usr/local \
     --sysconfdir=/etc \
     --enable-shared \
     --enable-pthread \
@@ -47,7 +47,7 @@ check() {
 package() {
   cd ruby-${pkgver//_/-}
 
-  make DESTDIR="${pkgdir}" install-nodoc
+  make DESTDIR="${pkgdir}/stow/ruby-1.9.3_p194" install-nodoc
 
   install -D -m644 ${srcdir}/gemrc "${pkgdir}/etc/gemrc"
 
