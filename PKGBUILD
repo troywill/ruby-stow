@@ -28,12 +28,14 @@ build() {
   cd ruby-${pkgver//_/-}
 
   PKG_CONFIG=/usr/bin/pkg-config ./configure \
-    --prefix=/usr/local \
-    --sysconfdir=/etc \
-    --enable-shared \
-    --enable-pthread \
-    --disable-rpath \
-    --disable-install-doc
+      --prefix=/usr/local \
+      --sysconfdir=/etc \
+      --enable-shared \
+      --enable-pthread \
+      --disable-rpath \
+      --disable-install-doc \
+      --bindir=/usr/local/bin/ruby-1.9.3_p194 \
+      --mandir=/usr/local/man 
 
   make
 }
