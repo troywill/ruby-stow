@@ -10,7 +10,7 @@ pkgdesc='An object-oriented language for quick and easy programming'
 arch=('i686' 'x86_64')
 url='http://www.ruby-lang.org/en/'
 license=('BSD' 'custom')
-backup=('etc/gemrc')
+# backup=('etc/gemrc')
 provides=('rubygems' 'rake')
 conflicts=('rake')
 depends=('openssl' 'libffi' 'libyaml')
@@ -18,7 +18,7 @@ makedepends=('tk')
 optdepends=('tk: for Ruby/TK'
             'ruby-docs: Ruby documentation')
 options=('!emptydirs' '!makeflags')
-install='ruby.install'
+# install='ruby.install'
 # source=("ftp://ftp.ruby-lang.org/pub/ruby/${pkgver%.*}/ruby-${pkgver//_/-}.tar.bz2"        'gemrc')
 source=("ftp://ftp.ruby-lang.org/pub/ruby/${pkgver%.*}/ruby-${pkgver//_/-}.tar.bz2" )
 # md5sums=('2278eff4cfed3cbc0653bc73085caa34'         '6fb8e7a09955e0f64be3158fb4a27e7a')
