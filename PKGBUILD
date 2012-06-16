@@ -19,25 +19,23 @@ optdepends=('tk: for Ruby/TK'
             'ruby-docs: Ruby documentation')
 options=('!emptydirs' '!makeflags')
 install='ruby.install'
-source=("ftp://ftp.ruby-lang.org/pub/ruby/${pkgver%.*}/ruby-${pkgver//_/-}.tar.bz2"
-        'gemrc')
-md5sums=('2278eff4cfed3cbc0653bc73085caa34'
-         '6fb8e7a09955e0f64be3158fb4a27e7a')
+# source=("ftp://ftp.ruby-lang.org/pub/ruby/${pkgver%.*}/ruby-${pkgver//_/-}.tar.bz2"        'gemrc')
+source=("ftp://ftp.ruby-lang.org/pub/ruby/${pkgver%.*}/ruby-${pkgver//_/-}.tar.bz2" )
+# md5sums=('2278eff4cfed3cbc0653bc73085caa34'         '6fb8e7a09955e0f64be3158fb4a27e7a')
+md5sums=('2278eff4cfed3cbc0653bc73085caa34')
 
 build() {
   cd ruby-${pkgver//_/-}
 
   PKG_CONFIG=/usr/bin/pkg-config ./configure \
       --prefix=/usr/local \
-      --sysconfdir=/etc \
-      --enable-pthread \
-      --disable-rpath \
-      --disable-install-doc \
       --bindir=/usr/local/bin/ruby-1.9.3_p194 \
       --mandir=/usr/local/man
-
-
-  # --enable-shared \
+      # --sysconfdir=/etc \
+      # --enable-pthread \
+      # --disable-rpath \
+      # --disable-install-doc \
+      # --enable-shared \
 
   make
 }
@@ -51,7 +49,8 @@ check() {
 package() {
   cd ruby-${pkgver//_/-}
 
-  make DESTDIR="${pkgdir}/stow/ruby-1.9.3_p194" install-nodoc
+#  make DESTDIR="${pkgdir}/stow/ruby-1.9.3_p194" install-nodoc
+  make DESTDIR="${pkgdir}/stow/ruby-1.9.3_p194" install
 
 #  install -D -m644 ${srcdir}/gemrc "${pkgdir}/etc/gemrc"
 
